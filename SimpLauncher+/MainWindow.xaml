@@ -1,0 +1,88 @@
+﻿<Window x:Class="SimpLauncherPlus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SimpLauncher+" Width="390" Height="300" Opacity="0.95" Background="Transparent"
+        WindowStartupLocation="Manual" Topmost="True" AllowsTransparency="True"
+        ResizeMode="NoResize" WindowStyle="None" 
+        ShowInTaskbar="False" x:Name="windowMain" Loaded="windowMain_Loaded"
+        >
+    <Grid x:Name="gridMain" HorizontalAlignment="Left" Background="Transparent">
+        <Grid.Effect>
+            <DropShadowEffect x:Name="grideffectShadow" BlurRadius="7" ShadowDepth="1" Direction="270" Color="Black" Opacity="0.5"/>
+        </Grid.Effect>
+
+        <StackPanel x:Name="stackOutside" Width="350" Height="260" Margin="10" HorizontalAlignment="Left">
+            <Canvas Height="30" Margin="10,0,0,0">
+                <Polygon Points="0,5 190 5 202 30 0 30" Fill="Orange"/>
+                <Image x:Name="imageSetting" Source="Resources/settings.png" Width="36" Height="36" Margin="158,-1,0,0"/>
+                <Button x:Name="buttonSetting" PreviewMouseDown="ButtonSetting_Click" Focusable="False">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Polygon Points="0,5 190 5 202 30 0 30" Fill="Transparent"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Polygon x:Name="polygonTime" Points="0,0 150,0 165,30 0,30" Fill="OrangeRed"/>
+                <TextBlock x:Name="textblockTime" Text="5월 24일 (일) 0:39" Width="140" Foreground="White" FontSize="15" Margin="7,5,0,0" Style="{DynamicResource TextblockStyle}"/>
+                <TextBlock x:Name="textblockTitle" Visibility="Collapsed" Text="5월 24일 (일) 0:39" Width="140" Foreground="White" FontSize="13" Margin="7,5,0,0" Style="{DynamicResource TextblockStyle}"/>
+            </Canvas>
+            <Grid x:Name="gridContents" Width="350" Height="230" HorizontalAlignment="Left">
+                <StackPanel x:Name="stackSetting" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Canvas Height="30" Width="10" HorizontalAlignment="Left">
+                        <Polygon Fill="Tan" Points="0,0 10,-10 10,10"/>
+                    </Canvas>
+                    <StackPanel Background="Tan" Width="200" HorizontalAlignment="Left">
+                        <Grid Margin="5,5,5,0">
+                            <TextBlock Text="Windows 시작 시 자동 실행" FontSize="12" Style="{DynamicResource TextblockStyle}"/>
+                            <Button x:Name="buttonStartup" Style="{DynamicResource TransparentButtonOff}" Width="40" Height="20"/>
+                        </Grid>
+                        <Grid Margin="5,5,5,0">
+                            <TextBlock Text="좌측 스위치 활성화" FontSize="12" Style="{DynamicResource TextblockStyle}"/>
+                            <Button x:Name="buttonLeftSwitch" Style="{DynamicResource TransparentButtonLeftOn}" Width="40" Height="20"/>
+                        </Grid>
+                        <Grid Margin="5,5,5,0">
+                            <TextBlock Text="볼륨 컨트롤 표시" FontSize="12" Style="{DynamicResource TextblockStyle}"/>
+                            <Button x:Name="buttonVolume" Style="{DynamicResource TransparentButtonOn}" Width="40" Height="20"/>
+                        </Grid>
+                        <!-- 
+                        <Grid Margin="5,5,5,0">
+                            <TextBlock x:Name="textInnerDebug" Text="" FontSize="12" Style="{DynamicResource TextblockStyle}"/>
+                        </Grid>
+                        -->
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="stackModify" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Canvas Height="30" Width="10" HorizontalAlignment="Left">
+                        <Polygon Fill="Tan" Points="0,0 10,-10 10,10"/>
+                    </Canvas>
+                    <StackPanel Background="Tan" Width="200" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button x:Name="buttonModOK" Width="45" Height="25" Margin="0,5,0,5" Content="Save" Style="{DynamicResource Button2}"/>
+                            <Button x:Name="buttonModCancel" Width="45" Height="25" Margin="5" Content="Cancel" Style="{DynamicResource Button2}"/>
+                        </StackPanel>
+                        <TextBox x:Name="textboxModify" Tag="바꿀 이름을 입력하세요." Margin="5,0,5,5" Style="{DynamicResource TextBox2}" Height="26"/>
+                        <TextBlock x:Name="textblockModify" Text="" MaxHeight="150" Height="150" Margin="5" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Visibility="Visible" x:Name="stackItems" Orientation="Horizontal">
+                    <Canvas Height="30" Width="10">
+                        <Polygon Points="0,0 10,-10 10,10" Fill="Ivory"/>
+                    </Canvas>
+                    <Grid>
+                        <Grid x:Name="gridItemsBackground" Background="Ivory" Width="340" Height="230"/>
+                        <Grid x:Name="gridItems" Width="340" Height="230" Background="Transparent" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                        <Rectangle x:Name="rectSelect" IsHitTestVisible="False" Fill="DarkGoldenrod" Opacity="0"/>
+
+                        <Grid x:Name="gridTransparent" Width="340" Height="230" Background="Transparent" Opacity="0.3" Visibility="Collapsed"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <Grid x:Name="gridMove" Visibility="Collapsed" Width="80" Height="80" Background="#00000000" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image x:Name="imageMove" Width="70" Height="70" Source="Resources/trash.png" Margin="5"/>
+            <Image x:Name="imageRemove" Visibility="Collapsed" Width="20" Height="19" Source="Resources/remove.png" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+        <!--<Button Content="Button" HorizontalAlignment="Left" Margin="124,115,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>-->
+    </Grid>
+</Window>

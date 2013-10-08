@@ -1,0 +1,18 @@
+﻿<Window x:Class="SimpLauncherPlus.VolumeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="Black" Opacity="0"
+        Title="VolumeWindow" Height="40" Width="180" Loaded="Window_Loaded"
+        ResizeMode="NoResize" WindowStyle="None" ShowInTaskbar="False"
+        WindowStartupLocation="Manual" Topmost="True" AllowsTransparency="True"
+        >
+    <Grid>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image x:Name="imageVolume" Width="22" Height="22" Margin="10,5,10,5"/>
+            <Canvas Height="11" Width="100" Background="Gray">
+                <Rectangle x:Name="rectVolume" Fill="DarkOrange"  Width="30" Height="11"/>
+            </Canvas>
+            <TextBlock Margin="5" x:Name="textblockVolume" VerticalAlignment="Center" TextAlignment="Center" Width="22" Foreground="White" Text="100"/>
+        </StackPanel>
+    </Grid>
+</Window>
